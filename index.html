@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanchar AI - Discover the Unseen</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdfdfd;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #3B9C9C;
+    }
+
+    .logo span {
+      color: #FF7F50;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .login-btn {
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      color: #3B9C9C;
+      transition: background 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background: #eafafa;
+    }
+
+    .btn.primary {
+      background: #FF7F50;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn.primary:hover {
+      background: #ff6330;
+      transform: scale(1.05);
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0') center center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      color: white;
+      z-index: 10;
+      max-width: 700px;
+      padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+    }
+
+    .footer {
+      background: #3B9C9C;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header class="navbar">
+    <div class="logo">Sanchar<span>AI</span></div>
+    <div class="nav-buttons">
+      <a href="login.html" class="login-btn">Login</a>
+      <a href="signup.html" class="btn primary">Get Started</a>
+    </div>
+  </header>
+
+  
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Discover the Unseen</h1>
+      <p>Smart suggestions, hidden gems, unforgettable hangouts.</p>
+    </div>
+  </section>
+
+ 
+  <footer class="footer">
+    <p>&copy; 2025 Sanchar AI | Built to Outshine TripyTrek</p>
+  </footer>
+
+</body>
+</html>

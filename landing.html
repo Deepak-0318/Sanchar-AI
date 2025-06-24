@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanchar AI - Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f9f9;
+      color: #222;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #3B9C9C;
+    }
+
+    .logo span {
+      color: #FF7F50;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      color: #3B9C9C;
+      transition: background 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: #eafafa;
+    }
+
+    .hero {
+      height: 80vh;
+      background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0') center center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      color: white;
+      z-index: 10;
+      max-width: 700px;
+      padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem auto;
+      flex-wrap: wrap;
+    }
+
+    .section-buttons a {
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #3B9C9C, #FF7F50);
+      color: white;
+      font-size: 1.1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .section-buttons a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .footer {
+      background: #3B9C9C;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body class="landing-body">
+
+  <header class="navbar">
+    <div class="logo">Sanchar<span>AI</span></div>
+    <nav class="nav-links">
+      <a href="login.html" onclick="logout()">Logout</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 id="welcomeHeading">Welcome to Sanchar AI</h1>
+      <p>Your intelligent companion for immersive and adventurous travel planning.</p>
+    </div>
+  </section>
+
+  <section class="section-buttons">
+  <a href="hangout.html">Plan a Hangout</a>
+  <a href="gems.html">Explore Hidden Gems</a>
+</section>
+  <footer class="footer">
+    <p>&copy; 2025 SancharAI — Explore More, Plan Smart</p>
+  </footer>
+
+  <script>
+    const user = localStorage.getItem("username");
+    const welcome = document.getElementById("welcomeHeading");
+    if (user) {
+      welcome.textContent = `Welcome back, ${user}!`;
+    }
+
+    function logout() {
+      localStorage.removeItem("username");
+    }
+  </script>
+</body>
+</html>
+
