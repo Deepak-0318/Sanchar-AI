@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Sanchar AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .profile-container {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .profile-container h2 {
+      color: #3B9C9C;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .profile-detail {
+      margin-bottom: 1rem;
+    }
+    .profile-detail span {
+      font-weight: bold;
+      color: #333;
+    }
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.2rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .close-btn:hover {
+      color: #3B9C9C;
+    }
+    .edit-btn {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 0.6rem 1.5rem;
+      background: #FF7F50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .edit-btn:hover {
+      background: #e76538;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <button class="close-btn" onclick="goBack()">&times;</button>
+    <h2>Your Travel Profile</h2>
+    <div class="profile-detail"><span>Name:</span> <span id="name"></span></div>
+    <div class="profile-detail"><span>Travel Vibe:</span> <span id="vibe"></span></div>
+    <div class="profile-detail"><span>Interests:</span> <span id="interest"></span></div>
+    <div class="profile-detail"><span>Travel Style:</span> <span id="style"></span></div>
+    <div class="profile-detail"><span>Travel Frequency:</span> <span id="frequency"></span></div>
+    <div class="profile-detail"><span>Preferred Cuisines:</span> <span id="cuisines"></span></div>
+    <div class="profile-detail"><span>Preferred Activities:</span> <span id="activities"></span></div>
+    <div class="profile-detail"><span>Noise Level Preference:</span> <span id="noise"></span></div>
+    <div class="profile-detail"><span>Preferred Neighborhoods:</span> <span id="neighborhood"></span></div>
+    <div class="profile-detail"><span>Personal Interests:</span> <span id="personalInterests"></span></div>
+    <div class="profile-detail"><span>Dietary Restrictions:</span> <span id="diet"></span></div>
+    <div class="profile-detail"><span>Accessibility Needs:</span> <span id="accessibility"></span></div>
+    <button class="edit-btn" onclick="editProfile()">Edit Profile</button>
+  </div>
+
+  <script>
+    const get = key => localStorage.getItem(key) || "-";
+    document.getElementById("name").textContent = get("username");
+    document.getElementById("vibe").textContent = get("vibe");
+    document.getElementById("interest").textContent = get("interest");
+    document.getElementById("style").textContent = get("style");
+    document.getElementById("frequency").textContent = get("frequency");
+    document.getElementById("cuisines").textContent = get("cuisines");
+    document.getElementById("activities").textContent = get("activities");
+    document.getElementById("noise").textContent = get("noise");
+    document.getElementById("neighborhood").textContent = get("neighborhood");
+    document.getElementById("personalInterests").textContent = get("personalInterests");
+    document.getElementById("diet").textContent = get("diet");
+    document.getElementById("accessibility").textContent = get("accessibility");
+
+    function goBack() {
+      window.history.back();
+    }
+
+    function editProfile() {
+      window.location.href = "questionnaire.html";
+    }
+  </script>
+</body>
+</html>

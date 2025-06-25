@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Questionnaire - Sanchar AI</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f8f8;
+      margin: 0;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #3B9C9C;
+    }
+    .logo span {
+      color: #FF7F50;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      color: #3B9C9C;
+      transition: background 0.3s ease;
+      margin-left: 1rem;
+    }
+    .nav-links a:hover {
+      background: #eafafa;
+    }
+
+    .questionnaire {
+      max-width: 720px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .questionnaire h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #3B9C9C;
+    }
+
+    .questionnaire label {
+      font-weight: 600;
+      margin-top: 1rem;
+      display: block;
+    }
+
+    .questionnaire input,
+    .questionnaire select,
+    .questionnaire textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .questionnaire select[multiple] {
+      height: auto;
+    }
+
+    .questionnaire button {
+      display: block;
+      width: 100%;
+      background: #3B9C9C;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .questionnaire button:hover {
+      background: #2c8181;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Sanchar<span>AI</span></div>
+    <div class="nav-links">
+      <a href="landing.html">Back to Dashboard</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </div>
+  </header>
+
+  <div class="questionnaire">
+    <h2>Let’s Personalize Your Experience</h2>
+    <form onsubmit="return savePreferences(event)">
+      <label for="vibe">Preferred Travel Vibe</label>
+      <select id="vibe">
+        <option>Chill & Relax</option>
+        <option>Adventurous</option>
+        <option>Romantic</option>
+        <option>Foodie</option>
+        <option>Nature & Wildlife</option>
+      </select>
+
+      <label for="interest">What kinds of places do you enjoy visiting?</label>
+      <textarea id="interest" placeholder="e.g. hidden cafes, waterfalls, art galleries..."></textarea>
+
+      <label for="style">Who do you usually travel with?</label>
+      <select id="style">
+        <option>Solo</option>
+        <option>Couple</option>
+        <option>Friends</option>
+        <option>Family</option>
+      </select>
+
+      <label for="frequency">How often do you travel?</label>
+      <select id="frequency">
+        <option>Every month</option>
+        <option>Every 3–6 months</option>
+        <option>Occasionally</option>
+        <option>Just getting started!</option>
+      </select>
+
+      <label for="cuisines">Preferred Cuisines (Select multiple)</label>
+      <select id="cuisines" multiple>
+        <option>South Indian</option>
+        <option>North Indian</option>
+        <option>Continental</option>
+        <option>Asian</option>
+        <option>Street Food</option>
+        <option>Vegan</option>
+      </select>
+
+      <label for="activities">Preferred Activities (Select multiple)</label>
+      <select id="activities" multiple>
+        <option>Trekking</option>
+        <option>Photography</option>
+        <option>Food Walks</option>
+        <option>Art Tours</option>
+        <option>Beach Days</option>
+        <option>Nightlife</option>
+      </select>
+
+      <label for="noise">Preferred Noise Levels</label>
+      <select id="noise">
+        <option>Quiet</option>
+        <option>Moderate</option>
+        <option>Lively</option>
+      </select>
+
+      <label for="neighborhood">Preferred Neighborhoods</label>
+      <input id="neighborhood" type="text" placeholder="e.g. Koramangala, Indiranagar..." />
+
+      <label for="personalInterests">Personal Interests</label>
+      <input id="personalInterests" type="text" placeholder="e.g. reading, gaming, hiking..." />
+
+      <label for="diet">Dietary Restrictions</label>
+      <input id="diet" type="text" placeholder="e.g. vegan, gluten-free, no seafood..." />
+
+      <label for="accessibility">Accessibility Needs</label>
+      <input id="accessibility" type="text" placeholder="e.g. wheelchair access, low walking distance..." />
+
+      <button type="submit">Continue to Dashboard</button>
+    </form>
+  </div>
+
+  <script>
+    function getMultiValues(selectEl) {
+      return Array.from(selectEl.selectedOptions).map(option => option.value).join(", ");
+    }
+
+    function savePreferences(event) {
+      event.preventDefault();
+      const fields = [
+        "vibe", "interest", "style", "frequency",
+        "noise", "neighborhood", "personalInterests",
+        "diet", "accessibility"
+      ];
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        localStorage.setItem(id, el.value);
+      });
+      localStorage.setItem("cuisines", getMultiValues(document.getElementById("cuisines")));
+      localStorage.setItem("activities", getMultiValues(document.getElementById("activities")));
+      window.location.href = "landing.html";
+    }
+
+    function logout() {
+      const confirmLogout = confirm("Are you sure you want to logout?");
+      if (confirmLogout) {
+        localStorage.clear();
+        window.location.href = "index.html";
+      }
+    }
+  </script>
+</body>
+</html>
